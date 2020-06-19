@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/home_24px"
+        android:title="@string/home_nav_title"/>
+    <item
+        android:id="@+id/strenthFragment"
+        android:enabled="true"
+        android:icon="@drawable/strength_24px"
+        android:title="@string/exercise_nav_title"/>
+    <item
+        android:id="@+id/flexibilityFragment"
+        android:enabled="true"
+        android:icon="@drawable/flexibility_24px"
+        android:title="@string/flexibility_nav_title"/>
+    <item
+        android:id="@+id/dietFragment"
+        android:enabled="true"
+        android:icon="@drawable/diet_24px"
+        android:title="@string/diet_nav_title"/>
+</menu>
