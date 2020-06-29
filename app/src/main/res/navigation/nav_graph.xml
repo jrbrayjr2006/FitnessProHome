@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/myFitnessFragment">
 
+    <fragment
+        android:id="@+id/myFitnessFragment"
+        android:name="com.continuouswave1550.fitness.fitnessprohome.myfitness.MyFitnessFragment"
+        android:label="fragment_my_fitness"
+        tools:layout="@layout/fragment_my_fitness" >
+        <action
+            android:id="@+id/action_myFitnessFragment_to_QRScanFragment"
+            app:destination="@id/QRScanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/QRScanFragment"
+        android:name="com.continuouswave1550.fitness.fitnessprohome.qrscan.QRScanFragment"
+        android:label="fragment_q_r_scan"
+        tools:layout="@layout/fragment_q_r_scan" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.continuouswave1550.fitness.fitnessprohome.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

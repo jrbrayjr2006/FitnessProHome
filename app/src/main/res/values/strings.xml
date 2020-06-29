@@ -9,4 +9,5 @@
     <string name="exercise_nav_title">Exercises</string>
     <string name="flexibility_nav_title">Flexibility</string>
     <string name="diet_nav_title">Diet</string>
+    <string name="about">About</string>
 </resources>

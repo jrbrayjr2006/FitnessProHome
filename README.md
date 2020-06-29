@@ -24,11 +24,11 @@ Fragment layout content is encapsulated in the `<layout>` root element
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.continuouswave1550.fitness.fitnessprohome.qrscan.QRScanFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".qrscan.QRScanFragment">
+        android:layout_height="match_parent">
 
         <!-- TODO: Update blank fragment layout -->
     
