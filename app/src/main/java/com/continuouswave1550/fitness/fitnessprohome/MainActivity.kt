@@ -22,8 +22,11 @@ class MainActivity : AppCompatActivity(){
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return super.onSupportNavigateUp()
+        super.onSupportNavigateUp()
+        val navController = this.findNavController(R.id.navigationHostFragment)
+        return navController.navigateUp()
     }
+
 }
 
 // Extension function to replace fragment
