@@ -41,11 +41,25 @@ Fragment layout content is encapsulated in the `<layout>` root element
 
 This application uses the Jetpack navigation libraries to implement navigation functionality in the app.
 
+#### Navigation Host
+
+Add a navigation host fragment to the Activity layout.  This acts as a host for navigation items in the navigation graph.
+
+```xml
+        <fragment
+            android:id="@+id/navigationHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+```
+
 #### Navigate Up
 
-In order to implement navigation using the navigate up icon in the upper left corner of the app, override the `onSupportNavigateUp()` function.
+In order to implement navigation using the navigate up icon in the upper left corner of the app, override the `onSupportNavigateUp()` function in the main Activity.
 
-Get an instance oif the navController and call the `navigateUp()` function.
+Get an instance of the navController and call the `navigateUp()` function.
 
 ```kotlin
     override fun onSupportNavigateUp(): Boolean {
