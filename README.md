@@ -25,7 +25,7 @@ Fragment layout content is encapsulated in the `<layout>` root element
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.continuouswave1550.fitness.fitnessprohome.qrscan.QRScanFragment">
+    tools:context="com.continuouswave1550.fitness.fitnessprohome.myfitness.MyFitnessFragmen">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -111,6 +111,136 @@ Get an instance of the navController and call the `navigateUp()` function.
         super.onSupportNavigateUp()
         val navController = this.findNavController(R.id.navigationHostFragment)
         return navController.navigateUp()
+    }
+```
+
+#### Navigation Drawer
+This app includes a navigation drawer that can be removed in a branch or fork of this code.  Material Design is used in the navigation drawer.
+
+Add a Material Design dependency in the app `build.gradle` file.
+```groovy
+dependencies {
+    ...
+    implementation "com.google.android.material:material:$supportlibVersion"
+    ...
+}
+```
+
+A menu resource is used for the navigation drawer.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/aboutFragment"
+        android:icon="@drawable/dashboard_24px"
+        android:title="@string/about" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/settings_24px"
+        android:title="@string/settings" />
+</menu>
+```
+
+The `androidx.drawerlayout.widget.DrawerLayout` element should be the first child of the `layout` element.  Add the navigation drawer to the `activity_main.xml` layout.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.continuouswave1550.fitness.fitnessprohome.MainActivity">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/navigationHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+        </LinearLayout>
+        ...
+        ...
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationDrawerLayout"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            android:menu="@menu/nav_drawer_menu"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
+```
+
+Add the navigation drawer to the activity class.
+
+```kotlin
+...
+import androidx.drawerlayout.widget.DrawerLayout
+...
+class MainActivity : AppCompatActivity(){
+    private lateinit var binding : ActivityMainBinding
+    private lateinit var drawerLayout: DrawerLayout
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        ...
+        ...
+        drawerLayout = binding.drawerLayout
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        NavigationUI.setupWithNavController(binding.navigationDrawerLayout, navController)
+        ...
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        super.onSupportNavigateUp()
+        val navController = this.findNavController(R.id.navigationHostFragment)
+        return NavigationUI.navigateUp(navController, drawerLayout)
+    }
+
+    ...
+```
+
+#### Bottom Navigation
+
+--Coming Soon--
+
+### Menus
+
+#### Options Menu
+To add an options menu to a fragment, call the `setHasOptionsMenu(true)` function in the fragment's `onCreateView` function.
+
+```kotlin
+...
+...
+override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        ...
+        setHasOptionsMenu(true)
+        ,,,
+        ...
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        ...
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+        ...
     }
 ```
 

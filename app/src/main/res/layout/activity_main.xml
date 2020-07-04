@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
-        android:id="@+id/mainContainer"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.continuouswave1550.fitness.fitnessprohome.MainActivity">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.continuouswave1550.fitness.fitnessprohome.MainActivity"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-
-        <fragment
-            android:id="@+id/navigationHostFragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/navigationHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
+        </LinearLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/bottom_navigation_menu"/>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationDrawerLayout"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
+            app:menu="@menu/nav_drawer_menu"/>
 
-
-    </LinearLayout>
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottomNavigation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:menu="@menu/bottom_navigation_menu"/>-->
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
