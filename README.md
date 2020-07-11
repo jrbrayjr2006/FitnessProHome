@@ -169,6 +169,12 @@ The `androidx.drawerlayout.widget.DrawerLayout` element should be the first chil
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                            android:id="@+id/bottomNavigation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:menu="@menu/bottom_navigation_menu"/>
         </LinearLayout>
         ...
         ...
@@ -212,8 +218,97 @@ class MainActivity : AppCompatActivity(){
 ```
 
 #### Bottom Navigation
+The bottom navigation bar is where icons for quick links live.  The content of the bottom navigation bar is defined in a menu resource like the one listed below:
 
---Coming Soon--
+**`bottom_navigation_menu.xml`**
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/home_24px"
+        android:title="@string/home_nav_title"/>
+    <item
+        android:id="@+id/strenthFragment"
+        android:enabled="true"
+        android:icon="@drawable/strength_24px"
+        android:title="@string/exercise_nav_title"/>
+    <item
+        android:id="@+id/flexibilityFragment"
+        android:enabled="true"
+        android:icon="@drawable/flexibility_24px"
+        android:title="@string/flexibility_nav_title"/>
+    <item
+        android:id="@+id/dietFragment"
+        android:enabled="true"
+        android:icon="@drawable/diet_24px"
+        android:title="@string/diet_nav_title"/>
+</menu>
+```
+
+
+
+We use the `com.google.android.material.bottomnavigation.BottomNavigationView` element for the bottom navigation inside of the `LinearLayout` just below the `NavHostFragment`
+
+```xml
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.continuouswave1550.fitness.fitnessprohome.MainActivity">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/navigationHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/bottom_navigation_menu"/>
+        </LinearLayout>
+        ...
+        ...
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
+```
+
+This is called in the `MainActivity` class via a private function.
+
+```kotlin
+...
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val navController = this.findNavController(R.id.navigationHostFragment)
+        drawerLayout = binding.drawerLayout
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        NavigationUI.setupWithNavController(binding.navigationDrawerLayout, navController)
+
+        setupBottomNavMenu(navController)
+    }
+    ...
+    ...
+    private fun setupBottomNavMenu(navController: NavController) {
+        val bottomNav: BottomNavigationView = binding.bottomNavigation
+        bottomNav?.setupWithNavController(navController)
+    }
+```
 
 ### Menus
 
@@ -251,3 +346,4 @@ override fun onCreateView(
 - [Testing on Android using JUnit 5](https://www.lordcodes.com/articles/testing-on-android-using-junit-5)
 - [CameraX Overview](https://developer.android.com/training/camerax)
 - [Getting Started with CameraX](https://codelabs.developers.google.com/codelabs/camerax-getting-started/index.html?index=..%2F..index#0)
+- [Jetpack Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)

@@ -7,6 +7,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.continuouswave1550.fitness.fitnessprohome.R
@@ -17,7 +18,8 @@ import com.continuouswave1550.fitness.fitnessprohome.databinding.FragmentMyFitne
  * status bar and navigation/system bar) with user interaction.
  */
 class MyFitnessFragment : Fragment() {
-    private lateinit var binding : FragmentMyFitnessBinding
+    private lateinit var binding: FragmentMyFitnessBinding
+    private lateinit var viewModel: MyFitnessViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +27,7 @@ class MyFitnessFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_fitness, container,false)
+        viewModel = ViewModelProvider(this).get(MyFitnessViewModel::class.java)
         binding.scanButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_myFitnessFragment_to_QRScanFragment)
         }
