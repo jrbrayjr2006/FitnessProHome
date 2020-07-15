@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/myFitnessFragment"
         android:enabled="true"
         android:icon="@drawable/home_24px"
         android:title="@string/home_nav_title"/>
     <item
-        android:id="@+id/strenthFragment"
+        android:id="@+id/exerciseFragment"
         android:enabled="true"
         android:icon="@drawable/strength_24px"
         android:title="@string/exercise_nav_title"/>

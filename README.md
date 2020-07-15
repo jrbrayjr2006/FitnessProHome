@@ -290,6 +290,9 @@ We use the `com.google.android.material.bottomnavigation.BottomNavigationView` e
 
 This is called in the `MainActivity` class via a private function.
 
+1. Setup the bottom navigation with the `navController`
+2. Set the navigation item listener to respond when a navigation item is selected.
+
 ```kotlin
 ...
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -307,6 +310,9 @@ This is called in the `MainActivity` class via a private function.
     private fun setupBottomNavMenu(navController: NavController) {
         val bottomNav: BottomNavigationView = binding.bottomNavigation
         bottomNav?.setupWithNavController(navController)
+        bottomNav.setOnNavigationItemReselectedListener { item ->
+            NavigationUI.onNavDestinationSelected(item, navController)
+        }
     }
 ```
 
@@ -339,11 +345,17 @@ override fun onCreateView(
     }
 ```
 
+### Data Persistence
+
+-- Under Construction --
+
 ## References
 - [Build a Flexible UI](https://developer.android.com/training/basics/fragments/fragment-ui)
 - [android kotlin - Fragment transaction example](https://android--examples.blogspot.com/2019/07/android-kotlin-fragment-transaction.html)
 - [Get started with the Navigation component](https://developer.android.com/guide/navigation/navigation-getting-started)
+- [Jetpack Navigation](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=..%2F..index#0)
 - [Testing on Android using JUnit 5](https://www.lordcodes.com/articles/testing-on-android-using-junit-5)
 - [CameraX Overview](https://developer.android.com/training/camerax)
 - [Getting Started with CameraX](https://codelabs.developers.google.com/codelabs/camerax-getting-started/index.html?index=..%2F..index#0)
 - [Jetpack Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)
+- [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)

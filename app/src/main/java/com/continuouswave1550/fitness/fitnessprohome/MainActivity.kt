@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity(){
     private fun setupBottomNavMenu(navController: NavController) {
         val bottomNav: BottomNavigationView = binding.bottomNavigation
         bottomNav?.setupWithNavController(navController)
+        bottomNav.setOnNavigationItemReselectedListener { item ->
+            NavigationUI.onNavDestinationSelected(item, navController)
+        }
     }
 
 }

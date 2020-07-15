@@ -29,4 +29,9 @@
         android:name="com.continuouswave1550.fitness.fitnessprohome.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.continuouswave1550.fitness.fitnessprohome.exercise.ExerciseFragment"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" />
 </navigation>
