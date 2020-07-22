@@ -347,6 +347,42 @@ override fun onCreateView(
 
 ### Data Persistence
 
+Data persistence in an Android application can be complex.  Below is a summary of the data management and persistence components of this app.
+
+- ViewModel class
+- Entity class
+- DAO class
+- Abstract Database class
+
+**Abstract Database Class**
+
+```kotlin
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database(entities = [Exercise::class], version = 1, exportSchema = false)
+abstract class ExerciseDatabase : RoomDatabase() {}
+```
+
+-- Under Construction --
+
+### Coroutines and Asynchronous Processes
+
+Coroutines are an experimental feature of Kotlin and must be explicitly added in the project dependencies.
+
+```groovy
+dependencies {
+    ...
+    def coroutine_version = "1.3.8"
+    ...
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    ...
+}
+```
+
+## Testing
+
 -- Under Construction --
 
 ## References
