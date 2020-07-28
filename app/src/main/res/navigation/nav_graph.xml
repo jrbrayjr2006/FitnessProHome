@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_myFitnessFragment_to_QRScanFragment"
             app:destination="@id/QRScanFragment" />
+        <action
+            android:id="@+id/action_myFitnessFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment" />
+        <action
+            android:id="@+id/action_myFitnessFragment_to_nutritionFragment"
+            app:destination="@id/nutritionFragment" />
     </fragment>
     <fragment
         android:id="@+id/QRScanFragment"
@@ -34,4 +40,9 @@
         android:name="com.continuouswave1550.fitness.fitnessprohome.exercise.ExerciseFragment"
         android:label="fragment_exercise"
         tools:layout="@layout/fragment_exercise" />
+    <fragment
+        android:id="@+id/nutritionFragment"
+        android:name="com.continuouswave1550.fitness.fitnessprohome.nutrition.NutritionFragment"
+        android:label="fragment_nutrition"
+        tools:layout="@layout/fragment_nutrition" />
 </navigation>

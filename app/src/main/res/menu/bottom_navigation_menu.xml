@@ -16,8 +16,8 @@
         android:icon="@drawable/flexibility_24px"
         android:title="@string/flexibility_nav_title"/>
     <item
-        android:id="@+id/dietFragment"
+        android:id="@+id/nutritionFragment"
         android:enabled="true"
         android:icon="@drawable/diet_24px"
-        android:title="@string/diet_nav_title"/>
+        android:title="@string/nutrition_title"/>
 </menu>
