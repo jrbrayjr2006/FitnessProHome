@@ -10,4 +10,6 @@
     <color name="magenta">#b1006a</color>
     <color name="light_yellow">#FFF59D</color>
     <color name="dark_yellow">#F57F17</color>
+    <color name="deep_orange_light">#FFCCBC</color>
+    <color name="deep_orange_dark">#BF360C</color>
 </resources>

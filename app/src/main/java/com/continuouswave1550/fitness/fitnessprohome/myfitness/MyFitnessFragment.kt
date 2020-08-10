@@ -12,11 +12,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.continuouswave1550.fitness.fitnessprohome.R
 import com.continuouswave1550.fitness.fitnessprohome.databinding.FragmentMyFitnessBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * An example full-screen fragment that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
+@AndroidEntryPoint
 class MyFitnessFragment : Fragment() {
     private lateinit var binding: FragmentMyFitnessBinding
     private lateinit var viewModel: MyFitnessViewModel

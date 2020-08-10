@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_myFitnessFragment_to_nutritionFragment"
             app:destination="@id/nutritionFragment" />
+        <action
+            android:id="@+id/action_myFitnessFragment_to_flexibilityFragment2"
+            app:destination="@id/flexibilityFragment" />
     </fragment>
     <fragment
         android:id="@+id/QRScanFragment"
@@ -45,4 +48,9 @@
         android:name="com.continuouswave1550.fitness.fitnessprohome.nutrition.NutritionFragment"
         android:label="fragment_nutrition"
         tools:layout="@layout/fragment_nutrition" />
+    <fragment
+        android:id="@+id/flexibilityFragment"
+        android:name="com.continuouswave1550.fitness.fitnessprohome.flexibility.FlexibilityFragment"
+        android:label="fragment_flexibility"
+        tools:layout="@layout/fragment_flexibility" />
 </navigation>
