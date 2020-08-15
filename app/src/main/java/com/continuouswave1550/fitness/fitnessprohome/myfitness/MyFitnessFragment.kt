@@ -13,6 +13,7 @@ import androidx.navigation.ui.NavigationUI
 import com.continuouswave1550.fitness.fitnessprohome.R
 import com.continuouswave1550.fitness.fitnessprohome.databinding.FragmentMyFitnessBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * An example full-screen fragment that shows and hides the system UI (i.e.
@@ -21,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MyFitnessFragment : Fragment() {
     private lateinit var binding: FragmentMyFitnessBinding
-    private lateinit var viewModel: MyFitnessViewModel
+    @Inject lateinit var viewModel: MyFitnessViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +30,6 @@ class MyFitnessFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_fitness, container,false)
-        viewModel = ViewModelProvider(this).get(MyFitnessViewModel::class.java)
         binding.scanButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_myFitnessFragment_to_QRScanFragment)
         }

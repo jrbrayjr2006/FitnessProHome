@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/myFitnessFragment"
         android:name="com.continuouswave1550.fitness.fitnessprohome.myfitness.MyFitnessFragment"
-        android:label="fragment_my_fitness"
-        tools:layout="@layout/fragment_my_fitness" >
+        android:label="@string/my_fitness"
+        tools:layout="@layout/fragment_my_fitness">
         <action
             android:id="@+id/action_myFitnessFragment_to_QRScanFragment"
             app:destination="@id/QRScanFragment" />
@@ -36,21 +36,21 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.continuouswave1550.fitness.fitnessprohome.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/exerciseFragment"
         android:name="com.continuouswave1550.fitness.fitnessprohome.exercise.ExerciseFragment"
-        android:label="fragment_exercise"
+        android:label="@string/exercise_title"
         tools:layout="@layout/fragment_exercise" />
     <fragment
         android:id="@+id/nutritionFragment"
         android:name="com.continuouswave1550.fitness.fitnessprohome.nutrition.NutritionFragment"
-        android:label="fragment_nutrition"
+        android:label="@string/nutrition_title"
         tools:layout="@layout/fragment_nutrition" />
     <fragment
         android:id="@+id/flexibilityFragment"
         android:name="com.continuouswave1550.fitness.fitnessprohome.flexibility.FlexibilityFragment"
-        android:label="fragment_flexibility"
+        android:label="@string/flexibility_title"
         tools:layout="@layout/fragment_flexibility" />
 </navigation>
