@@ -16,4 +16,6 @@
     <string name="nutrition_title">Nutrition</string>
     <string name="flexibility_title">Flexibilty</string>
     <string name="exercise_title">Exercises</string>
+    <string name="profile_title">My Profile</string>
+    <string name="fitness_history_title">Fitness History</string>
 </resources>

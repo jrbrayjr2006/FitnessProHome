@@ -3,6 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile_title" />
+    <item
+        android:id="@+id/historyFragment"
+        android:icon="@drawable/ic_fitness_history"
+        android:title="@string/fitness_history_title" />
+    <item
         android:id="@+id/aboutFragment"
         android:icon="@drawable/dashboard_24px"
         android:title="@string/about" />
