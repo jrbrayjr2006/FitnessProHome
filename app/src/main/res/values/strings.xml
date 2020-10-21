@@ -18,4 +18,5 @@
     <string name="exercise_title">Exercises</string>
     <string name="profile_title">My Profile</string>
     <string name="fitness_history_title">Fitness History</string>
+    <string name="start">Start</string>
 </resources>
